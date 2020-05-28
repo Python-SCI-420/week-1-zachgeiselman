@@ -1,0 +1,137 @@
+
+# Zachary Geiselman
+# W1 Assignment 1 - Basic Concepts
+# Video 1 Examples
+# ROCK PAPER SCISSORS GAME
+
+import random
+print('')
+print('Welcome to Rock, Paper, Scissors!')
+print('The rules are simple: you will type "Rock", "Paper", or "Scissors" when prompted.')
+print('Make sure you capitalize the first letter of your answer, otherwise it will not be recognized.')
+print('EXAMPLE: Type "Rock", not "rock"')
+print('FIRST TO 3 WINS! GOOD LUCK!')
+print('')
+
+def main():
+    list = [1, 2, 3]
+    rock = 'Rock'
+    paper = 'Paper'
+    scissors = 'Scissors'
+    y = 'Y'
+    n = 'N'
+
+    my_score = 0
+    computer_score = 0
+
+    while True:
+        computer_choice = random.choice(list)
+        if computer_choice == 1:
+            computer_choice = rock
+        if computer_choice == 2:
+            computer_choice = paper
+        if computer_choice == 3:
+            computer_choice = scissors
+
+        my_choice = input('Rock, Paper, or Scissors: ')
+        print('')
+        print('YOU: ', my_choice)
+        print('COMPUTER: ', computer_choice)
+
+        if my_choice == rock:
+            my_choice = 1
+        if my_choice == paper:
+            my_choice = 2
+        if my_choice == scissors:
+            my_choice = 3
+
+        if my_choice == 1 and computer_choice == rock:
+            print('')
+            print('Tie!')
+            print('Your Score: ', my_score)
+            print('Computer Score: ', computer_score)
+            print('')
+        if my_choice == 2 and computer_choice == paper:
+            print('')
+            print('Tie!')
+            print('Your Score: ', my_score)
+            print('Computer Score: ', computer_score)
+            print('')
+        if my_choice == 3 and computer_choice == scissors:
+            print('')
+            print('Tie!')
+            print('Your Score: ', my_score)
+            print('Computer Score: ', computer_score)
+            print('')
+        if my_choice == 1 and computer_choice == paper:
+            computer_score = computer_score + 1
+            print('')
+            print('Computer Wins!')
+            print('Your Score: ', my_score)
+            print('Computer Score: ', computer_score)
+            print('')
+        if my_choice == 1 and computer_choice == scissors:
+            my_score = my_score + 1
+            print('')
+            print('You Win!')
+            print('Your Score: ', my_score)
+            print('Computer Score: ', computer_score)
+            print('')
+        if my_choice == 2 and computer_choice == rock:
+            my_score = my_score + 1
+            print('')
+            print('You Win!')
+            print('Your Score: ', my_score)
+            print('Computer Score: ', computer_score)
+            print('')
+        if my_choice == 2 and computer_choice == scissors:
+            computer_score = computer_score + 1
+            print('')
+            print('Computer Wins!')
+            print('Your Score: ', my_score)
+            print('Computer Score: ', computer_score)
+            print('')
+        if my_choice == 3 and computer_choice == rock:
+            computer_score = computer_score + 1
+            print('')
+            print('Computer Wins!')
+            print('Your Score: ', my_score)
+            print('Computer Score: ', computer_score)
+            print('')
+        if my_choice == 3 and computer_choice == paper:
+            my_score = my_score + 1
+            print('')
+            print('You Win!')
+            print('Your Score: ', my_score)
+            print('Computer Score: ', computer_score)
+            print('')
+
+        if my_score == 3:
+            print('Congratulations, you won!')
+            print('')
+            play = input('Would you like to play again? (Y/N): ')
+            print('')
+            if play == n:
+                print('')
+                print('Thanks for playing!')
+                print('')
+                quit()
+            if play == y:
+                main()
+                print('')
+
+        if computer_score == 3:
+            print('GAME OVER: You lost.')
+            print('')
+            play = input('Would you like to play again? (Y/N): ')
+            print('')
+            if play == n:
+                print('')
+                print('Thanks for playing!')
+                print('')
+                quit()
+            if play == y:
+                main()
+                print('')
+
+main()
