@@ -1,0 +1,139 @@
+
+# Zachary Geiselman
+# W1 Assignment 1 - Basic Concepts
+# Video 2 Examples
+
+# Dictionary
+phone_book = {
+'Zach': ['508-667-4033', 'geiselmanzach@gmail.com'],
+'Mom': ['978-265-6884', 'lisageiselman@comcast.net'],
+'Dad': ['508-353-6933', 'tgeiselman@comcast.net']
+}
+print(phone_book['Zach'])
+print(phone_book['Mom'])
+print(phone_book['Dad'])
+
+print ('')
+
+# defaultdict
+from collections import defaultdict
+my_name = 'Zachary Geiselman'
+my_dictionary = defaultdict(int)
+for character in my_name:
+    my_dictionary[character] = my_dictionary[character] + 1
+print(my_dictionary)
+print(my_dictionary['d']) # should be 0 because doesnt exist and 0 is default value
+
+print('')
+
+# Counters
+from collections import Counter
+color = ['blue', 'red', 'blue', 'yellow', 'blue', 'red']
+color_count = Counter(color)
+print(color_count)
+color_2 = ['blue', 'red', 'yellow', 'green']
+for colors in color_2:
+    print(colors, color_count[colors]) # Since green is not in color_count it will return a value of 0
+
+print('')
+
+# Sets
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 11, 12, 2, 5, 7, 12, 1, 8, 5, 7, 1]
+print('List Length: ', len(my_list))
+distinct = set(my_list)
+print('List Set: ', distinct)
+print('Distinct Items: ', len(distinct))
+print('Distinct List: ', list(distinct))
+
+print('')
+
+# Control Flow
+# Shown in my rock paper scissors game
+
+# Truthiness
+x = 2 == 3
+print(x) # Will return False since 2 is not equal to 3
+x = 2 < 3
+print(x) # Will return True since 2 is less than 3
+
+for x in range(10):
+    if x > 5:
+        print('Yert')
+    if x < 5:
+        print('Oof')
+    if x == 5:
+        print('Slacks has ligma')
+print('')
+
+# Sorting
+number_list = [45, 46, 56, 59, 12, 67, 100, 124, 69]
+number_sorted = sorted(number_list)
+print(number_sorted)
+print('')
+
+# List Comprehensions
+my_list = range(0, 20)
+even_numbers = [num for num in my_list if num % 2 == 0]
+print('Even:', even_numbers)
+print('')
+
+# Automated Testing and Assert
+x = 'hello'
+assert x == 'hello'
+# assert x == 'goodbye' # Assertion error
+print('')
+
+# Object-Oriented Programming
+# Shown in rock paper scissors game, i think?
+
+# Iterables and Generators
+for num in range(10): # 10 iterations
+    print(num * 10)
+print('')
+
+# Randomness (also shown in rock paper scissors)
+import random
+
+list = range(1, 20)
+computer_choice = random.choice(tuple(list))
+
+while True:
+    my_choice = int(input('Guess a number between 1 and 20: '))
+    if my_choice > 20:
+        print('Value must be less than or equal to 20.')
+
+    if my_choice < 1:
+        print('Value must be greater than or equal to 1.')
+
+    if my_choice == computer_choice:
+        print('Your guess of', my_choice, 'is the same as the computer. Good job!')
+        break
+    if my_choice > computer_choice and my_choice <= 20:
+        print('Your guess of', my_choice, 'is too high!')
+
+    if my_choice < computer_choice and my_choice >= 1:
+        print('Your guess of', my_choice, 'is too low!')
+
+# Regular Expressions
+import re
+my_re = [not re.match("J", "Zach")]
+assert my_re
+print('')
+
+# Zip and Argument Unpacking
+list_1 = ['Zach', 'Jack', 'Nick', 'Isaac']
+list_2 = ['Cool', 'Not cool', 'Nice', 'Professor']
+combined_list = [pair for pair in zip(list_1, list_2)]
+print(combined_list)
+names, description = zip(*combined_list)
+print(names, description)
+print('')
+
+# args and kwargs
+def my_sum(*args):
+    result = 0
+    # Iterating over the Python args tuple
+    for x in args:
+        result += x
+    return result
+print(my_sum(1, 2, 3))
